@@ -1,5 +1,5 @@
 class Workout{
-  //Attributes
+  
   private int[] muscles = {0,0,0,0};
       //In order of: Legs, Torso, Arms, breaks
     
@@ -8,10 +8,9 @@ class Workout{
     int[] pushups = {0,1,1,0};
     int[] punching = {0,0,1,0};
     int[] breaks = {0,0,0,1};
-     
-     public Workout(int breaks;)
-    {
-      this.muscles[2] = breaks;
+    
+    public Workout(){
+      
     }
 
     private void generate()
@@ -29,10 +28,6 @@ class Workout{
       }
     }
 
-    private findMinimum(int[] array)
-    {
-      
-    }
   
   public String getWorkout()
   {

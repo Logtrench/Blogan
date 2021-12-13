@@ -15,6 +15,7 @@ public class GUI implements ActionListener {
 
   // All panels that need to be setVisible(false) by button actions.
   static JPanel ChoicePanel = new JPanel();
+  static JPanel WorkoutPanel = new JPanel();
 
   // this is the colour palet
   //colour names reflect purpose
@@ -81,15 +82,33 @@ public class GUI implements ActionListener {
     switch (e.getActionCommand()) {
       // exit button will simply exit system
       case "Finish":
+        WorkoutPanel.setVisible(false);
         System.out.println("BOBIES");
         break;
       case "Generate Workout":
         System.out.println(Main.train.getWorkout());
-        labl(ChoicePanel, "Workout");
+        ChoicePanel.setVisible(false);
+        Main.slide = 2;
+        Main.start();
         break;
     }
   }
+    public static void exercise(){
+          // creation of grid layout
+    GridLayout OneByOne = new GridLayout(0, 1, 3, 10);
 
+    // setting of panel parameters
+    WorkoutPanel = panel(mainFrame, 700, 400);
+    WorkoutPanel.setLayout(OneByOne);
+    WorkoutPanel.setBackground(Background);
+
+    // story development!
+    labl(WorkoutPanel, "WORKOUT NOW");
+
+    // creation and settin of Finish button
+    JButton next = new JButton();
+    next = butt(WorkoutPanel, "Finish", Button, Color.BLACK);
+    }
     public static void ChooseWorkout() {
 
     // creation of grid layout
