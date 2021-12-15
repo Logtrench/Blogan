@@ -83,9 +83,10 @@ public class GUI implements ActionListener {
       // exit button will simply exit system
       case "Finish":
         WorkoutPanel.setVisible(false);
-        System.out.println("BOBIES");
+        System.out.println("i want it that way");
         break;
       case "Generate Workout":
+        Main.train.generate();
         System.out.println(Main.train.getWorkout());
         ChoicePanel.setVisible(false);
         Main.slide = 2;
@@ -103,12 +104,13 @@ public class GUI implements ActionListener {
     WorkoutPanel.setBackground(Background);
 
     // story development!
-    labl(WorkoutPanel, "WORKOUT NOW");
+    labl(WorkoutPanel, Main.train.getWorkout());
 
     // creation and settin of Finish button
     JButton next = new JButton();
     next = butt(WorkoutPanel, "Finish", Button, Color.BLACK);
     }
+    
     public static void ChooseWorkout() {
 
     // creation of grid layout
