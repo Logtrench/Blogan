@@ -1,3 +1,5 @@
+//This is version one of the program
+
 class Main {
   public static int slide = 1;
   public static Workout train = new Workout(1);
