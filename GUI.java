@@ -99,7 +99,7 @@ public class GUI implements ActionListener {
     GridLayout OneByOne = new GridLayout(0, 1, 3, 10);
 
     // setting of panel parameters
-    WorkoutPanel = panel(mainFrame, 700, 400);
+    WorkoutPanel = panel(mainFrame, 300, 300);
     WorkoutPanel.setLayout(OneByOne);
     WorkoutPanel.setBackground(Background);
 
@@ -117,7 +117,7 @@ public class GUI implements ActionListener {
     GridLayout OneByOne = new GridLayout(0, 1, 3, 10);
 
     // setting of panel parameters
-    ChoicePanel = panel(mainFrame, 700, 400);
+    ChoicePanel = panel(mainFrame, 300, 300);
     ChoicePanel.setLayout(OneByOne);
     ChoicePanel.setBackground(Background);
 
