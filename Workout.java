@@ -7,49 +7,30 @@ class Workout {
   String choice = "Click generate to generate a workout";
   // In order of: Legs, Torso, Arms, breaks
 
-  // Workout arrays
-  int[] running = { 9, 0, 1, 0 };
-  int[] pushups = { 0, 1, 2, 0 };
-  int[] punching = { 1, 1, 2, 0 };
-  int[] breaks = { 0, 0, 0, 1 };
-
-  int[][] all = { running, pushups, punching, breaks };
-
-  // break modifier
-  int breakModifier = 0;
+  // break modifier defaulted to 1
+  int breakModifier = 1;
 
   Workout(int breaks) {
     this.breakModifier = breaks;
   }
 
-  public void generate() {
-    for (int i = 0; i < muscles.length; i++) {
-      System.out.println(muscles[i]);
-    }
+  // Workout arrays
+  int[] running = { 1, 0, 0, 0 };
+  int[] pushups = { 0, 2, 1, 0};
+  int[] punching = { 0, 0, 2, 0 };
+  int[] breaks = {0, 0, 0, breakModifier};
+  int[][] all = { running, pushups, punching, breaks };
 
+  public void generate() {
     int add[] = new int[4];
 
     add = findWorkout();
     
     for (int i = 0; i < muscles.length; i++) {
-      this.muscles[i] += add[i];
+        this.muscles[i] += add[i];      
     }
     System.out.println(Arrays.toString(muscles));
   }
-
-  /*
-   * private int[] findWorkout(int min, int max) { int[] array = new
-   * int[muscles.length];
-   * 
-   * if (running[min] >= pushups[min] && running[min] >= punching[min] &&
-   * running[min] >= breaks[min]) { array = running; choice = "running"; } else if
-   * (pushups[min] >= punching[min] && pushups[min] >= breaks[min]) { array =
-   * pushups; choice = "pushups"; } else if (punching[min] >= breaks[min]) { array
-   * = punching; choice = "punching"; } else { array = breaks; choice = "breaks";
-   * }
-   * 
-   * return array; }
-   */
 
   private int[] findWorkout(){
     //declaring temp arrays
@@ -65,7 +46,6 @@ class Workout {
     {
       tempArray[o]+=all[0][o];
     }
-    System.out.println("this is temp" +Arrays.toString(tempArray));
 
     //TEMP ARRAY GETS MESSED UP IN FOR LOOP
 
@@ -76,7 +56,7 @@ class Workout {
       compArray = muscles.clone();
       //go through weightings of muscles for each workout
       for(int i = 0; i<muscles.length;i++){
-        compArray[i]+=all[j][i];
+          compArray[i]+=all[j][i];
       }
       
       /*

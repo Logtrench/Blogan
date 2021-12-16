@@ -1,6 +1,6 @@
 class Main {
   public static int slide = 1;
-  public static Workout train = new Workout(1);
+  public static Workout train = new Workout(2);
 
   public static void main(String[] args) {
 
