@@ -73,4 +73,52 @@ class File {
 
     } catch (Exception e) {}
   }
+
+  public static void addWrite(String file1, String file2, String message) {
+      try {
+
+     
+      // This will read the old scoreboard
+      BufferedReader br = new BufferedReader(new FileReader(file1));
+
+      // this will write the old scoreboard into a temporary
+      BufferedWriter bwt = new BufferedWriter(new FileWriter(file2));
+
+      // this will read the temporary
+      BufferedReader brt = new BufferedReader(new FileReader(file2));
+
+      // creation of a string to read
+      String s;
+
+      // will write everything from the original file into the temporary
+      while ((s = br.readLine()) != null) {
+        bwt.write(s + "\n");
+
+      }
+
+      // reset of old file and writer which will copy temp file into new file along
+      // with new score
+      BufferedWriter bw = new BufferedWriter(new FileWriter(file1));
+
+      // add new score to temp file when nothing is read
+      if ((s = br.readLine()) == null) {
+        bwt.write(message);
+      }
+
+      // close reader and writier for first file so that others can right
+      br.close();
+      bwt.close();
+
+      //writing the temp file into the scoreboard
+      String t = "";
+      while ((t = brt.readLine()) != null) {
+        bw.write(t + "\n");
+      }
+
+      //closing the other reader and writer
+      brt.close();
+      bw.close();
+
+    } catch (Exception e) {}
+  }
 }

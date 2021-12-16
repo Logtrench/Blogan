@@ -29,7 +29,13 @@ class Workout {
     for (int i = 0; i < muscles.length; i++) {
         this.muscles[i] += add[i];      
     }
+    
+    
+    File.write(Arrays.toString(muscles), "muscleValues.txt");
     System.out.println(Arrays.toString(muscles));
+    int[] test = {1,2,3,4};
+    test = makeArray("awd4,1,4,1");
+    System.out.println(Arrays.toString(test));
   }
 
   private int[] findWorkout(){
@@ -117,13 +123,28 @@ class Workout {
     return mean;
   }
 
-  /*private int[] copyArray(int[] art, int[] copy)
+  private int[] makeArray(String s)
   {
-    for(int i =0;i<art.length;i++)
+    String t = "";
+    int counter = 0;
+    int[] array = {0,0,0,0};
+    for(int i =0;i<s.length();i++)
     {
-      copy[i] = art[i];
+      char ch = s.charAt(i);
+      if(Character.isDigit(ch))
+      {
+        t+=ch;
+      }
+      if(ch==',')
+      {
+        array[counter] = Integer.getInteger(t);
+        t="";
+        counter++;
+      }
     }
-  }*/
+
+    return array;
+  }
 
   public String getWorkout() {
     return choice;
