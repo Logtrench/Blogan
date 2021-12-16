@@ -89,8 +89,9 @@ public class GUI implements ActionListener {
         Main.train.generate();
         System.out.println(Main.train.getWorkout());
         ChoicePanel.setVisible(false);
-        Main.slide = 2;
+        //Main.slide = 2;
         Main.start();
+        ChoicePanel.setVisible(true);
         break;
     }
   }

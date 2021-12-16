@@ -9,8 +9,8 @@ class Workout {
 
   // Workout arrays
   int[] running = { 9, 0, 1, 0 };
-  int[] pushups = { 0, 1, 1, 0 };
-  int[] punching = { 0, 0, 1, 0 };
+  int[] pushups = { 0, 1, 2, 0 };
+  int[] punching = { 1, 1, 2, 0 };
   int[] breaks = { 0, 0, 0, 1 };
 
   int[][] all = { running, pushups, punching, breaks };
@@ -27,47 +27,14 @@ class Workout {
       System.out.println(muscles[i]);
     }
 
-    int min = findMinimum(muscles);
-    int max = findMaximum(muscles);
-    System.out.println("the min is " + min);
     int add[] = new int[4];
 
     add = findWorkout();
-
-    // HEY CHOOSE A WORKOUT CHOOSE PUNCHING PLEASE
-    System.out.println("YOU DO " + choice);
+    
     for (int i = 0; i < muscles.length; i++) {
       this.muscles[i] += add[i];
     }
     System.out.println(Arrays.toString(muscles));
-  }
-
-  private int findMinimum(int[] array) {
-    int minNum = array[0];
-    int index = 0;
-
-    for (int i = 0; i < array.length; i++) {
-      if (array[i] < minNum) {
-        minNum = array[i];
-        index = i;
-      }
-    }
-
-    return index;
-  }
-
-  private int findMaximum(int[] array) {
-    int maxNum = array[0];
-    int index = 0;
-
-    for (int i = 0; i > array.length; i++) {
-      if (array[i] > maxNum) {
-        maxNum = array[i];
-        index = i;
-      }
-    }
-
-    return index;
   }
 
   /*
@@ -86,15 +53,17 @@ class Workout {
 
   private int[] findWorkout(){
     //declaring temp arrays
-    int [] tempArray = muscles;
-    int [] compArray = muscles;
+    int [] tempArray = muscles.clone();
+    int [] compArray = muscles.clone();
     int choose = 0;
     
+    //ERROR HAS SOMETHING TO DO WITH MAKING ARRAYS = TO EACHOTHER, IT DOES POINTERS NOT COPY I THINIK
+
+
     //making tempArray default to adding the first workout
     for(int o =0; o<all[0].length;o++)
     {
       tempArray[o]+=all[0][o];
-      System.out.println(all[0][o]);
     }
     System.out.println("this is temp" +Arrays.toString(tempArray));
 
@@ -104,7 +73,7 @@ class Workout {
     //go through list of arrays (workouts)
     for(int j = 0; j<all.length;j++){
       //resetting compArray
-      compArray = muscles;
+      compArray = muscles.clone();
       //go through weightings of muscles for each workout
       for(int i = 0; i<muscles.length;i++){
         compArray[i]+=all[j][i];
@@ -114,18 +83,15 @@ class Workout {
       if(dev of comp array better, then no change)
       elseif (dev of temp array better, make comp array = to temparray)
       */
+      
       if(dev(tempArray)>dev(compArray)){
-        tempArray=compArray;
+        tempArray=compArray.clone();
 
         choose = j;
-      }
-      System.out.println(dev(compArray));
-      System.out.println("this mean is comparray:" +mean(compArray));
-      System.out.println(dev(tempArray));
-      System.out.println("this mean is temparray:" +mean(tempArray));
-      System.out.println("this is the comparray:"+ Arrays.toString(compArray));
-      
+      } 
     }
+
+    tempArray = all[choose].clone();
     
     //assigning the identity to the workout
     switch(choose)
@@ -164,13 +130,20 @@ class Workout {
   private double mean(int[] array) {
     double mean = 0;
     int sum = 0;
-    System.out.println("this is the array:"+ Arrays.toString(array));
     for (int i = 0; i < array.length; i++) {
       sum += array[i];
     }
     mean = (double)sum / (double)array.length;
     return mean;
   }
+
+  /*private int[] copyArray(int[] art, int[] copy)
+  {
+    for(int i =0;i<art.length;i++)
+    {
+      copy[i] = art[i];
+    }
+  }*/
 
   public String getWorkout() {
     return choice;
