@@ -11,16 +11,31 @@ class Workout {
   // In order of: Biceps, Triceps, Shoulders, quads,
   // hamstrings,glutes,core,pecs,upperback,midback,breaks
 
-
   // Workout arrays
-  int[] running = { 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 };
-  int[] pushups = { 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0 };
-  int[] squats = { 0, 0, 0, 2, 0, 1, 0, 1, 0, 0, 0 };
-  int[] bicep_curls = { 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-  int[] breaks = { 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1 };
-  int[] high_row = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 };
-  int[] lat_raises = { 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0 };
-  int[][] all = { running, pushups, squats, breaks, bicep_curls, high_row, lat_raises };
+  int[] running = { 0, 0, 0, 2, 2, 2, 1, 0, 0, 1, 0 };
+  int[] pushups = { 0, 1, 2, 0, 0, 0, 1, 2, 0, 1, 0 };
+  int[] squats = { 0,0, 0, 2, 0, 2, 1, 0, 0, 1, 0 };
+  int[] bicep_curls = { 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+  int[] breaks = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
+  int[] high_row = { 1,0, 0, 0, 0, 0, 0, 0, 1, 2, 0 };
+  int[] lat_raises = { 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0 };  
+  int[] hammer_curls = { 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+  int[] tricep_kickback = { 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
+  int[] tricep_extension = { 0, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0 };
+  int[] db_deadlift = {0, 0, 0, 2, 1, 2, 1, 0, 1, 1, 0 };
+  int[] front_raises = { 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0 };
+  int[] wall_sits = { 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0 };
+  int[] forward_lunge = { 0, 0, 0, 2, 1, 2, 1, 0, 0, 0, 0 };
+  int[] hamstring_curl = { 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0 };
+  int[] Straight_leg_deadlift = { 0, 0, 0, 0, 2, 2, 1, 0, 1, 0, 0 };
+  int[] glute_bridge = { 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0 };
+  int[] plank = { 0, 1, 1, 1, 0, 0, 2, 1, 0, 1, 0 };
+  int[] deadbug = { 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0 };
+  int[] bird_dog = { 0, 0, 1, 0, 1, 1, 2, 0, 1, 1, 0 };
+  int[] wide_pushups = { 0, 1, 2, 0, 0, 0, 1, 3, 0, 1, 0 };
+  int[] arm_row = { 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0 };
+  int[] chinups = { 2, 0, 1, 0, 0, 0, 1, 1, 1, 2, 0 };
+  int[][] all = { running, pushups, squats, breaks, bicep_curls, high_row, lat_raises,hammer_curls,tricep_kickback, tricep_extension, front_raises, wall_sits, forward_lunge, hamstring_curl, Straight_leg_deadlift, glute_bridge, db_deadlift, plank, deadbug, bird_dog, wide_pushups,arm_row, chinups };
 
   public Workout(int breakMod) {
     breaks[10] = breakMod;
@@ -110,6 +125,56 @@ class Workout {
       case 6:
         choice = "Lateral Raises";
         break;
+      case 7:
+        choice = "Hammer Curls";
+        break;
+      case 8:
+        choice = "Tricep Kickbacks";
+        break;
+      case 9:
+        choice = "Tricep Extension";
+        break;
+      case 10:
+        choice = "Front Raises";
+        break;
+      case 11:
+        choice = "Wall Sits";
+        break;
+      case 12:
+        choice = "Forward Lunge";
+        break;
+      case 13:
+        choice = "Hamstring Curl";
+        break;
+      case 14:
+        choice = "Straight Leg Deadlift";
+        break;
+      case 15:
+        choice = "Glute Bridge";
+        break;
+      case 16:
+        choice = "Dumbbell Deadlift";
+        break;
+      case 17:
+        choice = "Plank";
+        break;
+      case 18:
+        choice = "Deadbug";
+        break;
+      case 19:
+        choice = "Bird Dog";
+        break;
+      case 20:
+        choice = "Wide Pushups";
+        break;
+      case 21:
+        choice = "Arm Row";
+        break;
+      case 22:
+        choice = "Chinups";
+        break;
+        
+        /*running, pushups, squats, breaks, bicep_curls, high_row, lat_raisesAAAA,hammer_curls,tricep_kickback, tricep_extension, front_raises, wall_sits, forward_lunge, hamstring_curl, Straight_leg_deadlift, glute_bridge, db_deadlift, plank, deadbug, bird_dog, wide_pushups,arm_row, chinups };*/
     }
 
     return tempArray;
@@ -166,6 +231,7 @@ class Workout {
   public String getImage(){
     String link ="";
     //images 300x124
+    //choice = "Chinups";
     switch (choice) {
       case "Running":
         link = "Images/RunPic.jpg";
@@ -188,6 +254,54 @@ class Workout {
       case "Lateral Raises":
         link = "Images/LatRaisePic.jpg";
         break;
+      case "Hammer Curls":
+        link = "Images/HamCurlPic.jpg";
+        break;
+      case "Tricep Kickbacks":
+        link = "Images/TriKickbackPic.jpg";
+        break;
+      case "Tricep Extension":
+        link = "Images/TriExtensionPic.jpg";
+        break;
+      case "Front Raises":
+        link = "Images/FrontRaisesPic.jpeg";
+        break;
+      case "Wall Sits":
+        link = "Images/WallSitPic.jpg";
+        break;
+      case "Forward Lunge":
+        link = "Images/FwdLungPic.jpg";
+        break;
+      case "Hamstring Curl":
+        link = "Images/hamstring_curl.jpg";
+        break;
+      case "Straight Leg Deadlift":
+        link = "Images/StrLegDeadliftPic.jpg";
+        break;
+      case "Glute Bridge":
+        link = "Images/GluteBridgePic.jpg";
+        break;
+      case "Dumbbell Deadlift":
+        link = "Images/DBDeadliftPic.jpg";
+        break;
+      case "Plank":
+        link = "Images/PlankPic.jpg";
+        break;
+      case "Deadbug":
+        link = "Images/DeadbugPic.jpg";
+        break;
+      case "Bird Dog":
+        link = "Images/BirddogPic.jpg";
+        break;
+      case "Wide Pushups":
+        link = "Images/WidePushupPic.jpg";
+        break;
+      case "Arm Row":
+        link = "Images/ArmRowPic.jpg";
+        break;
+      case "Chinups":
+        link = "Images/ChinupPic.jpeg";
+        break;
       }
       return link;
   }
@@ -196,25 +310,73 @@ class Workout {
     //images 300x124
     switch (choice) {
       case "Running":
-        tip = "Don't fall";
+        tip = "Don't run too fast";
         break;
       case "Breaks":
-        tip = "Breahte bruh";
+        tip = "Live your normal life!";
         break;
       case "Pushups":
-        tip = "Keep ass down";
+        tip = "Make sure your body is straight";
         break;
       case "Bicep Curls":
-        tip = "Activate";
+        tip = "Take your time";
         break;
       case "Squats":
-        tip = "Yay";
+        tip = "Finish strong";
         break;
       case "High Rows":
-        tip = "Pull";
+        tip = "Try not to let your elbows straighten";
         break;
       case "Lateral Raises":
-        tip = "lol";
+        tip = "Go down slower";
+        break;
+      case "Hammer Curls":
+        tip = "Keep your posture as you lift";
+        break;
+      case "Tricep Kickbacks":
+        tip = "Time it with your breathing";
+        break;
+      case "Tricep Extension":
+        tip = "Keep your elbows close to your body";
+        break;
+      case "Front Raises":
+        tip = "Lift the weight upward while inhaling";
+        break;
+      case "Wall Sits":
+        tip = "Keep your knees above your ankles";
+        break;
+      case "Forward Lunge":
+        tip = "Engage your core";
+        break;
+      case "Hamstring Curl":
+        tip = "Lower your foot slowly";
+        break;
+      case "Straight Leg Deadlift":
+        tip = "Bend at your hips";
+        break;
+      case "Glute Bridge":
+        tip = "Keep your arms at your side";
+        break;
+      case "Dumbbell Deadlift":
+        tip = "Keep your head in line with the rest of your body";
+        break;
+      case "Plank":
+        tip = "Keep a neutral sine and neck";
+        break;
+      case "Deadbug":
+        tip = "Exhale as you rise";
+        break;
+      case "Bird Dog":
+        tip = "Keep your hip and shoulders parallel to the floor";
+        break;
+      case "Wide Pushups": 
+        tip = "Keep body in a straight line";
+        break;
+      case "Arm Row":
+        tip = "Maintain a tight core";
+        break;
+      case "Chinups":
+        tip = "Can be assisted with bands";
         break;
       }
       return tip;

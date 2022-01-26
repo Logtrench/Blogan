@@ -1,32 +1,31 @@
 class Diet {
   int calories = 0;
-  int vegs = 0;
-  int fruits = 0;
-  int grains = 0;
+  int fat = 0;
   int protein = 0;
+  int carbohydrates = 0;
 
-  public void addFood(int cal, int veggies, int fruit, int grain, int proteins) {
-    calories += cal;
-    vegs += veggies;
-    fruits += fruit;
-    grains += grain;
+
+  public void addFood( int fats, int carbs, int proteins) {
+    fat += fats;
+    carbohydrates += carbs;
     protein += proteins;
+  }
+
+  public void findCalories()
+  {
+    calories = fat*9+carbohydrates*4+protein*4;
   }
 
   public int getCalories() {
     return calories;
   }
 
-  public int getVegtables() {
-    return vegs;
+  public int getFat() {
+    return fat;
   }
 
-  public int getFruits() {
-    return fruits;
-  }
-
-  public int getGrains() {
-    return grains;
+  public int getCarbs() {
+    return carbohydrates;
   }
 
   public int getProtein() {
