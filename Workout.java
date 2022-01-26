@@ -14,15 +14,15 @@ class Workout {
   // Workout arrays
   int[] running = { 0, 0, 0, 2, 2, 2, 1, 0, 0, 1, 0 };
   int[] pushups = { 0, 1, 2, 0, 0, 0, 1, 2, 0, 1, 0 };
-  int[] squats = { 0,0, 0, 2, 0, 2, 1, 0, 0, 1, 0 };
+  int[] squats = { 0, 0, 0, 2, 0, 2, 1, 0, 0, 1, 0 };
   int[] bicep_curls = { 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
   int[] breaks = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
-  int[] high_row = { 1,0, 0, 0, 0, 0, 0, 0, 1, 2, 0 };
-  int[] lat_raises = { 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0 };  
+  int[] high_row = { 1, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0 };
+  int[] lat_raises = { 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0 };
   int[] hammer_curls = { 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
   int[] tricep_kickback = { 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
   int[] tricep_extension = { 0, 2, 0, 0, 0, 0, 1, 0, 0, 1, 0 };
-  int[] db_deadlift = {0, 0, 0, 2, 1, 2, 1, 0, 1, 1, 0 };
+  int[] db_deadlift = { 0, 0, 0, 2, 1, 2, 1, 0, 1, 1, 0 };
   int[] front_raises = { 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0 };
   int[] wall_sits = { 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0 };
   int[] forward_lunge = { 0, 0, 0, 2, 1, 2, 1, 0, 0, 0, 0 };
@@ -35,15 +35,15 @@ class Workout {
   int[] wide_pushups = { 0, 1, 2, 0, 0, 0, 1, 3, 0, 1, 0 };
   int[] arm_row = { 2, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0 };
   int[] chinups = { 2, 0, 1, 0, 0, 0, 1, 1, 1, 2, 0 };
-  int[][] all = { running, pushups, squats, breaks, bicep_curls, high_row, lat_raises,hammer_curls,tricep_kickback, tricep_extension, front_raises, wall_sits, forward_lunge, hamstring_curl, Straight_leg_deadlift, glute_bridge, db_deadlift, plank, deadbug, bird_dog, wide_pushups,arm_row, chinups };
+  int[][] all = { running, pushups, squats, breaks, bicep_curls, high_row, lat_raises, hammer_curls, tricep_kickback,
+      tricep_extension, front_raises, wall_sits, forward_lunge, hamstring_curl, Straight_leg_deadlift, glute_bridge,
+      db_deadlift, plank, deadbug, bird_dog, wide_pushups, arm_row, chinups };
 
   public Workout(int breakMod) {
     breaks[10] = breakMod;
   }
 
-  
-
-  public void generate(){ 
+  public void generate() {
     int add[] = new int[11];
 
     add = findWorkout();
@@ -53,7 +53,8 @@ class Workout {
     }
 
     File.write(Arrays.toString(muscles), "muscleValues.txt");
-    //File.write("Exercises Completed:"+ Main.train.getCounter(), "muscleValues.txt");
+    // File.write("Exercises Completed:"+ Main.train.getCounter(),
+    // "muscleValues.txt");
     System.out.println(Arrays.toString(muscles));
   }
 
@@ -63,9 +64,6 @@ class Workout {
     int[] tempArray = muscles.clone();
     int[] compArray = muscles.clone();
     int choose = 0;
-
-    // ERROR HAS SOMETHING TO DO WITH MAKING ARRAYS = TO EACHOTHER, IT DOES POINTERS
-    // NOT COPY I THINIK
 
     // making tempArray default to adding the first workout
     for (int o = 0; o < all[0].length; o++) {
@@ -173,8 +171,14 @@ class Workout {
       case 22:
         choice = "Chinups";
         break;
-        
-        /*running, pushups, squats, breaks, bicep_curls, high_row, lat_raisesAAAA,hammer_curls,tricep_kickback, tricep_extension, front_raises, wall_sits, forward_lunge, hamstring_curl, Straight_leg_deadlift, glute_bridge, db_deadlift, plank, deadbug, bird_dog, wide_pushups,arm_row, chinups };*/
+
+      /*
+       * running, pushups, squats, breaks, bicep_curls, high_row,
+       * lat_raisesAAAA,hammer_curls,tricep_kickback, tricep_extension, front_raises,
+       * wall_sits, forward_lunge, hamstring_curl, Straight_leg_deadlift,
+       * glute_bridge, db_deadlift, plank, deadbug, bird_dog, wide_pushups,arm_row,
+       * chinups };
+       */
     }
 
     return tempArray;
@@ -204,7 +208,7 @@ class Workout {
   private int[] makeArray(String s) {
     String t = "";
     int counter = 0;
-    int[] array = { 0, 0, 0, 0,0,0,0,0,0,0,0 };
+    int[] array = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     for (int i = 0; i < s.length(); i++) {
       char ch = s.charAt(i);
       if (Character.isDigit(ch)) {
@@ -224,14 +228,16 @@ class Workout {
   public String getWorkout() {
     return choice;
   }
+
   public String getCounter() {
     String count = Integer.toString(counter);
     return count;
   }
-  public String getImage(){
-    String link ="";
-    //images 300x124
-    //choice = "Chinups";
+
+  public String getImage() {
+    String link = "";
+    // images 300x124
+    // choice = "Chinups";
     switch (choice) {
       case "Running":
         link = "Images/RunPic.jpg";
@@ -302,12 +308,13 @@ class Workout {
       case "Chinups":
         link = "Images/ChinupPic.jpeg";
         break;
-      }
-      return link;
+    }
+    return link;
   }
-    public String getTips(){
-    String tip ="";
-    //images 300x124
+
+  public String getTips() {
+    String tip = "";
+    // images 300x124
     switch (choice) {
       case "Running":
         tip = "Don't run too fast";
@@ -369,7 +376,7 @@ class Workout {
       case "Bird Dog":
         tip = "Keep your hip and shoulders parallel to the floor";
         break;
-      case "Wide Pushups": 
+      case "Wide Pushups":
         tip = "Keep body in a straight line";
         break;
       case "Arm Row":
@@ -378,7 +385,7 @@ class Workout {
       case "Chinups":
         tip = "Can be assisted with bands";
         break;
-      }
-      return tip;
+    }
+    return tip;
   }
 }

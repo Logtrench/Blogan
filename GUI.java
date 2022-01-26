@@ -1,10 +1,12 @@
+
+//import all needed files.
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI implements ActionListener {
-  //the parameters for meditation
+  // the parameters for meditation
   String startTime;
   String endTime;
   static String medit = "Play";
@@ -12,14 +14,17 @@ public class GUI implements ActionListener {
   static boolean invalid = false;
   static String quote = "";
 
+  // the parameters for diet
   public static int fats = 0;
   public static int carbs = 0;
   public static int protein = 0;
+
   // the submitting toggle variable and username testfield object
   public static boolean sub = false;
-  public static JTextField num_fats= new JTextField(15);
+  public static JTextField num_fats = new JTextField(15);
   public static JTextField num_carbs = new JTextField(15);
   public static JTextField num_protein = new JTextField(15);
+
   // The frame to be used by ALL panels
   public static JFrame mainFrame = new JFrame();
 
@@ -32,6 +37,7 @@ public class GUI implements ActionListener {
   static JPanel DietPanel = new JPanel();
   static JPanel ButtonPanel = new JPanel();
   static JPanel EntryPanel = new JPanel();
+
   // this is the colour palet
   // colour names reflect purpose
   static Color Background = new Color(153, 221, 204);
@@ -53,6 +59,7 @@ public class GUI implements ActionListener {
     panel.add(label);
   }
 
+  // Label creator method, adds to a panel
   public static void labl(JPanel panel, String message, int size) {
     JLabel label = new JLabel(message, SwingConstants.CENTER);
     Font Robo = new Font("Roboto", Font.BOLD, size);
@@ -60,7 +67,7 @@ public class GUI implements ActionListener {
     panel.add(label);
   }
 
-  // Label creator method, adds to a panel
+  // textfield creator method, returns textfield
   public static JTextField text(JPanel panel, String message) {
     JTextField text = new JTextField(message, 12);
     panel.add(text);
@@ -95,11 +102,11 @@ public class GUI implements ActionListener {
     // checking the button name and implementing actions
     // in switch case
     switch (e.getActionCommand()) {
-      // exit button will simply exit system
+      // each slide button will make previous slides invisible, set the new slide,
+      // then call Main.start to update the UI
       case "Finish":
         WorkoutPanel.setVisible(false);
         ChoicePanel.setVisible(false);
-        System.out.println("Finshing da workout");
         Main.slide = 3;
         Main.start();
         break;
@@ -108,20 +115,13 @@ public class GUI implements ActionListener {
         ChoicePanel.setVisible(false);
         HealthStatsPanel.setVisible(false);
         MeditationPanel.setVisible(false);
-        System.out.println("Goin back to da men");
         Main.slide = 3;
         Main.start();
         break;
-      case "Generate Workout":
+      case "Generate Workout": case "Next Exercise":
         Main.train.generate();
         System.out.println(Main.train.getWorkout());
         ChoicePanel.setVisible(false);
-        Main.slide = 2;
-        Main.start();
-        break;
-      case "Next Exercise":
-        Main.train.generate();
-        System.out.println(Main.train.getWorkout());
         WorkoutPanel.setVisible(false);
         Main.slide = 2;
         Main.start();
@@ -149,22 +149,27 @@ public class GUI implements ActionListener {
         medit = "Stop Meditating";
         quote = Meditation.quote();
 
-
-        MeditationPanel.setVisible(false);        
+        MeditationPanel.setVisible(false);
         Main.start();
         break;
 
       case "Stop Meditating":
         Main.slide = 4;
         System.out.println("Stopping..");
+        
+        //get end time for calculations
         Meditation.endTime = Meditation.getTime();
+        
+        //chaneg button name
         medit = "Play";
+        
+        //reset the quote
         quote = "";
 
-         //and also add time to time meditated
+        // and also add time to time meditated
         Meditation.meditate();
 
-        MeditationPanel.setVisible(false);        
+        MeditationPanel.setVisible(false);
         Main.start();
         break;
 
@@ -175,25 +180,25 @@ public class GUI implements ActionListener {
         break;
       case "Done":
 
-        try{
+        try {
+          //get inputs of diet grams.
           carbs = Integer.valueOf(num_carbs.getText());
           fats = Integer.valueOf(num_fats.getText());
           protein = Integer.valueOf(num_protein.getText());
-        DietPanel.setVisible(false);
-        invalid = false;
-        Main.food.addFood(fats, carbs, protein);
-        Main.food.findCalories();
-        Main.slide = 3;
-        Main.start();
+          DietPanel.setVisible(false);
+          invalid = false;
+          Main.food.addFood(fats, carbs, protein);
+          Main.food.findCalories();
+          Main.slide = 3;
+          Main.start();
+
+          //if it is invalide, prompt the user to input them again.
+        } catch (Exception everything) {
+          System.out.println("Invalid");
+          invalid = true;
+          DietPanel.setVisible(false);
+          Diet();
         }
-      catch(Exception everything) {
-        System.out.println("Invalid");
-        invalid = true;
-        DietPanel.setVisible(false);
-        Diet();
-      }
-
-
 
     }
   }
@@ -219,11 +224,12 @@ public class GUI implements ActionListener {
     ButtonPanel.setLayout(TwoCol);
     ButtonPanel.setBackground(Background);
 
-    // story development!
+    // adding the parts of the panel
     WorkoutPanel.add(HeaderPanel);
     labl(HeaderPanel, Main.train.getWorkout());
     labl(HeaderPanel, "Tips:");
     labl(HeaderPanel, Main.train.getTips());
+    
     // Workout Image
     ImageIcon icon = new ImageIcon(Main.train.getImage());
     image(WorkoutPanel, icon);
@@ -247,10 +253,10 @@ public class GUI implements ActionListener {
     ChoicePanel.setLayout(OneByOne);
     ChoicePanel.setBackground(Background);
 
-    // story development!
+    // Labels
     labl(ChoicePanel, "Blogan Wellness Workout Generator");
 
-    // creation and settin of Finish button
+    // creation and setting of buttons
     JButton gen = new JButton();
     gen = butt(ChoicePanel, "Generate Workout", Button, Color.BLACK);
     JButton next = new JButton();
@@ -267,7 +273,7 @@ public class GUI implements ActionListener {
     MenuPanel.setLayout(OneByOne);
     MenuPanel.setBackground(Background);
 
-    // story development!
+    // labels
     labl(MenuPanel, "Blogan Wellness Programs");
     ImageIcon icon = new ImageIcon("Images/BloganLogo.png");
     image(MenuPanel, icon);
@@ -285,7 +291,7 @@ public class GUI implements ActionListener {
   }
 
   public static void Meditation() {
-   // MeditationPanel.setVisible(true);        
+    // MeditationPanel.setVisible(true);
 
     GridLayout OneByOne = new GridLayout(0, 1, 3, 10);
 
@@ -294,12 +300,10 @@ public class GUI implements ActionListener {
     MeditationPanel.setLayout(OneByOne);
     MeditationPanel.setBackground(Background);
 
-    
-    
-    // story development!
+    // labels
     labl(MeditationPanel, "Meditate");
-    
-    //quote generated.
+
+    // quote generated.
     labl(MeditationPanel, quote);
 
     // creation and settin of Finish button
@@ -317,7 +321,7 @@ public class GUI implements ActionListener {
     HealthStatsPanel.setLayout(OneByOne);
     HealthStatsPanel.setBackground(Background);
 
-    // story development!
+    // labels
     labl(HealthStatsPanel, "Calories Consumed: " + Main.food.getCalories());
     labl(HealthStatsPanel, "Fat Consumed(g): " + Main.food.getFat());
     labl(HealthStatsPanel, "Carbohydrates Consumed(g): " + Main.food.getCarbs());
@@ -346,17 +350,14 @@ public class GUI implements ActionListener {
     EntryPanel = panel(mainFrame, 300, 400);
     EntryPanel.setLayout(TwoCol);
     EntryPanel.setBackground(Background);
-    // story development!
-    if(invalid){
+    // labels
+    if (invalid) {
       labl(DietPanel, "Please Enter Valid Grams");
-    }
-    else{
+    } else {
       labl(DietPanel, "Enter what you ate (in grams)");
     }
     DietPanel.add(EntryPanel);
 
-    //labl(EntryPanel, "Calories : ");
-    //num_calories = text(EntryPanel, "0");
 
     labl(EntryPanel, "Fats : ");
     num_fats = text(EntryPanel, "0");

@@ -1,13 +1,19 @@
 class Main {
-  //Should start on menu
+  // Should start on menu
   public static int slide = 3;
+
+  // making the objects for different features
   public static Workout train = new Workout(2);
   public static Meditation mind = new Meditation();
   public static Diet food = new Diet();
+
+  // simply starting the program
   public static void main(String[] args) {
     start();
   }
 
+  // start houses every window/slide. start will be called everytime the panel
+  // should change.
   public static void start() {
     switch (slide) {
       case 1:
@@ -32,7 +38,6 @@ class Main {
       case 6:
         GUI.Diet();
         break;
-        
 
     }
   }

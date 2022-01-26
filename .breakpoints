@@ -1,21 +1,5 @@
 {
   "files": {
-    "Diet.java": [
-      {
-        "id": "61980d31-b7fc-4000-b893-ea950a4e536f",
-        "line": 9,
-        "version": 638,
-        "index": 158
-      }
-    ],
-    "Main.java": [
-      {
-        "id": "c81cfc96-c17e-4239-97fb-ffae04abc21f",
-        "line": 1,
-        "version": 1048,
-        "index": 11
-      }
-    ],
     "Meditation.java": [
       {
         "id": "b35869dd-e19e-4acf-a6c6-fee7c32c7159",
@@ -28,7 +12,7 @@
       {
         "id": "7eaf57e1-a27b-4677-804e-f8a35254bbd3",
         "line": 4,
-        "version": 8614,
+        "version": 8615,
         "index": 46
       }
     ]
