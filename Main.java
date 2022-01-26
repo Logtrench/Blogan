@@ -11,7 +11,7 @@ class Main {
   public static void main(String[] args) {
     start();
   }
-
+ 
   // start houses every window/slide. start will be called everytime the panel
   // should change.
   public static void start() {
